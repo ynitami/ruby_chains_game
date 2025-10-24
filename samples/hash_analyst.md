@@ -1,23 +1,42 @@
-### サンプルデッキ C：「ハッシュ・アナリスト」
-* **コンセプト:** Hash操作に加え、Integer分析力も強化し、速攻にも耐えられるようになった万能分析型デッキ。
-* **得意分野:** Hash型全般、Integer型、nil耐性。
+#### スターター C：「ハッシュ・アナリスト」 (42枚セット)
 
-| カテゴリ | メソッド名 | 採用枚数 |
-| :--- | :--- | :--- |
-| A. 主力 | .split | 1枚 |
-| | .join | 1枚 |
-| | .sort | 1枚 |
-| | .uniq | 2枚 |
-| | .keys | 3枚 |
-| | .values | 3枚 |
-| | .to\_s | 3枚 |
-| | **.sum** | **3枚** |
-| B. ユーティリティ | .tally | 2枚 |
-| | .invert | 2枚 |
-| | .size | 2枚 |
-| | .times | 1枚 |
-| | **.compact** | **2枚** |
-| C. 切り札 | .map | 1枚 |
-| | .group\_by | 2枚 |
-| | .transform\_values | 2枚 |
-| **合計** | | **30枚** |
+`Hash` の生成と操作、`.digits` から `Hash` への変換コンボを学べるセット。組み替えることで「最終系デッキC」を構築できます。
+
+##### ▼ スターターC レシピ (30枚)
+| カテゴリ | 枚数 | カード名 | 主な入力 $\rightarrow$ 主な出力 |
+| :--- | :--- | :--- | :--- |
+| **A. 主力** | 3枚 | `.digits` | Integer $\rightarrow$ Array |
+| | 3枚 | `.tally` | Array $\rightarrow$ Hash |
+| | 2枚 | `.keys` | Hash $\rightarrow$ Array |
+| | 2枚 | `.values` | Hash $\rightarrow$ Array |
+| | 1枚 | `.invert` | Hash $\rightarrow$ Hash |
+| | 1枚 | `.split` | String $\rightarrow$ Array |
+| | 1枚 | `.join` | Array $\rightarrow$ String |
+| | 1枚 | `.times` | Integer $\rightarrow$ Enumerator |
+| **B. Utility** | 2枚 | `.to_s` | Any $\rightarrow$ String |
+| | 2枚 | `.size` | Any $\rightarrow$ Integer |
+| | 1枚 | `.to_i` | Any $\rightarrow$ Integer |
+| | 1枚 | `.sort` | Array/Hash $\rightarrow$ Array |
+| | 1枚 | `.inspect` | Any $\rightarrow$ String |
+| **C. 切り札** | 2枚 | `.group_by` | Array $\rightarrow$ Hash |
+| | 2枚 | `.transform_values` | Hash $\rightarrow$ Hash |
+| **D. Generator** | 1枚 | `.merge({ new: 99 })` | Hash $\rightarrow$ Hash |
+| | 1枚 | `.merge({ "sym": :val })` | Hash $\rightarrow$ Hash |
+| | 1枚 | `.push({ key: "val" })` | Array $\rightarrow$ Array |
+| **合計** | **30枚** | | |
+
+##### ▼ スターターC 追加カード (12枚)
+| カテゴリ | 枚数 | カード名 | 主な入力 $\rightarrow$ 主な出力 |
+| :--- | :--- | :--- | :--- |
+| **A. 主力** | 1枚 | `.keys` | Hash $\rightarrow$ Array |
+| | 1枚 | `.values` | Hash $\rightarrow$ Array |
+| | 1枚 | `.invert` | Hash $\rightarrow$ Hash |
+| | 1枚 | `.swapcase` | String $\rightarrow$ String |
+| **B. Utility** | 1枚 | `.first` | Array/Hash $\rightarrow$ Any |
+| | 1枚 | `.reverse` | String/Array $\rightarrow$ String/Array |
+| | 1枚 | `.sum` | String/Array $\rightarrow$ Integer |
+| **C. 切り札** | 1枚 | `.map` | Array $\rightarrow$ Array |
+| **D. Generator** | 1枚 | `.*(5)` | String/Array $\rightarrow$ String/Array |
+| | 1枚 | `.concat("-SUFFIX")` | String $\rightarrow$ String |
+| | 1枚 | `.scan(/../)` | String $\rightarrow$ Array |
+| | 1枚 | `.push([10, 20])` | Array $\rightarrow$ Array |

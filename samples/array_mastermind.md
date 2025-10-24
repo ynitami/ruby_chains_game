@@ -1,26 +1,43 @@
-### サンプルデッキ B：「アレイ・マスターマインド」
-* **コンセプト:** 配列の加工、整理、集計に特化した制御型デッキ。
-* **得意分野:** Array型全般、ArrayからHash、ArrayからInteger。
+#### スターター B：「アレイ・マスターマインド」 (42枚セット)
 
-| カテゴリ | メソッド名 | 採用枚数 |
-| :--- | :--- | :--- |
-| A. 主力 | .split | 2枚 |
-| | .chars | 1枚 |
-| | .join | 2枚 |
-| | .to\_s | 1枚 |
-| | .sort | 3枚 |
-| | .uniq | 3枚 |
-| | .flatten | 1枚 |
-| | .compact | 2枚 |
-| | .reverse | 1枚 |
-| | .keys | 1枚 |
-| | .values | 1枚 |
-| | .sum | 3枚 |
-| B. ユーティリティ | .tally | 2枚 |
-| | .first | 2枚 |
-| | .size | 2枚 |
-| | .times | 1枚 |
-| | .inspect | 1枚 |
-| C. 切り札 | .map | 2枚 |
-| | .group\_by | 2枚 |
-| **合計** | | **30枚** |
+`Array` の多彩な操作と、`Integer` を `Array` リソースに変換する戦術を学べるセット。組み替えることで「最終系デッキB」を構築できます。
+
+##### ▼ スターターB レシピ (30枚)
+| カテゴリ | 枚数 | カード名 | 主な入力 $\rightarrow$ 主な出力 |
+| :--- | :--- | :--- | :--- |
+| **A. 主力** | 3枚 | `.digits` | Integer $\rightarrow$ Array |
+| | 3枚 | `.uniq` | Array $\rightarrow$ Array |
+| | 2枚 | `.flatten` | Array $\rightarrow$ Array |
+| | 2枚 | `.compact` | Array $\rightarrow$ Array |
+| | 1枚 | `.tally` | Array $\rightarrow$ Hash |
+| | 1枚 | `.chars` | String $\rightarrow$ Array |
+| **B. Utility** | 2枚 | `.to_s` | Any $\rightarrow$ String |
+| | 2枚 | `.size` | Any $\rightarrow$ Integer |
+| | 2枚 | `.sort` | Array/Hash $\rightarrow$ Array |
+| | 1枚 | `.to_i` | Any $\rightarrow$ Integer |
+| | 1枚 | `.sum` | String/Array $\rightarrow$ Integer |
+| | 1枚 | `.last` | Array/Hash $\rightarrow$ Any |
+| | 1枚 | `.sample` | Array/Hash $\rightarrow$ Any |
+| | 1枚 | `.count` | Array/Hash $\rightarrow$ Integer |
+| **C. 切り札** | 2枚 | `.map` | Array $\rightarrow$ Array |
+| | 1枚 | `.group_by` | Array $\rightarrow$ Hash |
+| **D. Generator** | 1枚 | `.push([10, 20])` | Array $\rightarrow$ Array |
+| | 1枚 | `.concat([99, 98, 97])` | Array $\rightarrow$ Array |
+| **合計** | **30枚** | | |
+
+##### ▼ スターターB 追加カード (12枚)
+| カテゴリ | 枚数 | カード名 | 主な入力 $\rightarrow$ 主な出力 |
+| :--- | :--- | :--- | :--- |
+| **A. 主力** | 1枚 | `.tally` | Array $\rightarrow$ Hash |
+| | 1枚 | `.shuffle` | Array $\rightarrow$ Array |
+| | 1枚 | `.keys` | Hash $\rightarrow$ Array |
+| | 1枚 | `.values` | Hash $\rightarrow$ Array |
+| | 1枚 | `.join` | Array $\rightarrow$ String |
+| **B. Utility** | 1枚 | `.reverse` | String/Array $\rightarrow$ String/Array |
+| | 1枚 | `.first` | Array/Hash $\rightarrow$ Any |
+| | 1枚 | `.next` | Integer/String $\rightarrow$ String/Integer |
+| **C. 切り札** | 1枚 | `.group_by` | Array $\rightarrow$ Hash |
+| **D. Generator** | 1枚 | `.*(5)` | String/Array $\rightarrow$ String/Array |
+| | 1枚 | `.merge({ "sym": :val })` | Hash $\rightarrow$ Hash |
+| | 1枚 | `.scan(/../)` | String $\rightarrow$ Array |
+
