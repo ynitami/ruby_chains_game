@@ -3,8 +3,9 @@
 | カテゴリ         | 枚数      | メソッド名              | 主な入力 $\rightarrow$ 主な出力    |
 | :--------------- | :-------- | :---------------------- | :--------------------------------- |
 | **A. 主力**      | 1 枚      | `.chars`                | String $\rightarrow$ Array         |
-|                  | 2 枚      | `.compact`              | Array $\rightarrow$ Array          |
+|                  | 1 枚      | `.compact`              | Array $\rightarrow$ Array          |
 |                  | 3 枚      | `.digits`               | Integer $\rightarrow$ Array        |
+|                  | 1 枚      | `.flatten`              | Array $\rightarrow$ Array          |
 |                  | 2 枚      | `.split`                | String $\rightarrow$ Array         |
 |                  | 2 枚      | `.tally`                | Array $\rightarrow$ Hash           |
 |                  | 3 枚      | `.uniq`                 | Array $\rightarrow$ Array          |
