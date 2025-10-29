@@ -13,5 +13,5 @@ https://docs.ruby-lang.org/ja/latest/method/Integer/i/inspect.html
 Float
 https://docs.ruby-lang.org/ja/latest/method/Float/i/inspect.html
 
-NilClass
-https://docs.ruby-lang.org/ja/latest/method/NilClass/i/inspect.html
+Object
+https://docs.ruby-lang.org/ja/latest/method/Object/i/inspect.html
