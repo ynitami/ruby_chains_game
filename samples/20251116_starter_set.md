@@ -33,14 +33,7 @@
 | `.to_s`    | 4 枚     |
 | `.uniq`    | 2 枚     |
 
-### C. 切り札 - 合計 8 枚
-
-| メソッド名  | 合計枚数 |
-| :---------- | :------- |
-| `.group_by` | 4 枚     |
-| `.map`      | 4 枚     |
-
-### D. ジェネレーター - 合計 4 枚
+### C. ジェネレーター - 合計 4 枚
 
 | メソッド名              | 合計枚数 |
 | :---------------------- | :------- |
@@ -48,6 +41,13 @@
 | `.concat([99, 98, 97])` | 1 枚     |
 | `.push([10, 20])`       | 1 枚     |
 | `.scan(/../)`           | 1 枚     |
+
+### D. 切り札 - 合計 8 枚
+
+| メソッド名  | 合計枚数 |
+| :---------- | :------- |
+| `.group_by` | 4 枚     |
+| `.map`      | 4 枚     |
 
 ## レシーバーカード
 
@@ -74,3 +74,8 @@
 8. 要素数が 3 以下の`Array`にせよ。 / 値 (value) が Array である`Hash`にせよ。
 9. `Hash`にせよ。 / 1 文字の`String`にせよ。
 10. 全ての要素が同じ`Array`にせよ。 / キーと値が同じ`Hash`にせよ。
+
+## 初期デッキサンプル
+
+1. [String Blitz](https://github.com/ynitami/ruby_chains_game/blob/52e8329c5a9c445af2a0b63a09131438f510e961/samples/string_blitz.md)
+2. [Array Mastermind](https://github.com/ynitami/ruby_chains_game/blob/52e8329c5a9c445af2a0b63a09131438f510e961/samples/array_mastermind.md)
