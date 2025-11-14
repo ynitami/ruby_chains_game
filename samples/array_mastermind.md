@@ -4,7 +4,7 @@
 | :-------------------- | :-------- | :---------------------- | :-------------------------------------------- |
 | **A. 主力**           | 1 枚      | `.chars`                | String $\rightarrow$ Array                    |
 |                       | 3 枚      | `.digits`               | Integer $\rightarrow$ Array                   |
-|                       | 2 枚      | `.flatten`              | Array $\rightarrow$ Array                     |
+|                       | 1 枚      | `.flatten`              | Array $\rightarrow$ Array                     |
 |                       | 1 枚      | `.join`                 | Array $\rightarrow$ String                    |
 |                       | 1 枚      | `.last`                 | Array $\rightarrow$ Object/NilClass           |
 |                       | 1 枚      | `.sample`               | Array $\rightarrow$ Object/NilClass           |
