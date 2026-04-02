@@ -105,7 +105,6 @@ export default class extends Controller {
     let html = `<span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs">${this.escapeHtml(this.receiverLabel)}</span>`
 
     this.chain.forEach((entry, i) => {
-      html += `<span class="text-gray-400 mx-0.5">.</span>`
       html += `<button data-action="click->chain#removeMethod" data-index="${i}"
                        class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs hover:bg-red-100 hover:text-red-700 transition-colors"
                        title="クリックで削除">${this.escapeHtml(entry.name)}</button>`

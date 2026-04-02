@@ -22,7 +22,7 @@ export default class extends Controller {
     // 名前フィールドの表示/非表示
     this.nameFieldsTarget.querySelectorAll(".player-name-field").forEach(field => {
       const idx = parseInt(field.dataset.index)
-      field.style.display = idx < count ? "" : "none"
+      field.classList.toggle("hidden", idx >= count)
     })
   }
 
