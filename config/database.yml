@@ -89,8 +89,8 @@ production:
     <<: *default
     host:     <%= Rails.application.credentials.dig(:db, :host) %>
     database: <%= Rails.application.credentials.dig(:db, :database) %>
-    username: <%= Rails.application.credentials.dig(:database, :username) %>
-    password: <%= Rails.application.credentials.dig(:database, :password) %>
+    username: <%= Rails.application.credentials.dig(:db, :username) %>
+    password: <%= Rails.application.credentials.dig(:db, :password) %>
   cache:
     <<: *primary_production
     database: ruby_chains_app_production_cache
