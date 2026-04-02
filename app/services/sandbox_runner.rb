@@ -39,6 +39,16 @@ class SandboxRunner
       def require_relative(*); raise SecurityError, "Blocked: require_relative"; end
       def load(*); raise SecurityError, "Blocked: load"; end
 
+      # File/IO/Dir等のクラスメソッドを無効化
+      [File, IO, Dir].each do |klass|
+        klass.define_singleton_method(:new) { |*| raise SecurityError, "Blocked: \#{klass}.new" }
+        [:read, :write, :open, :delete, :rename, :exist?, :glob, :foreach, :entries].each do |m|
+          if klass.respond_to?(m)
+            klass.define_singleton_method(m) { |*| raise SecurityError, "Blocked: \#{klass}.\#{m}" }
+          end
+        end
+      end
+
       begin
         result = eval(#{@code.inspect})
         value_str = result.inspect
