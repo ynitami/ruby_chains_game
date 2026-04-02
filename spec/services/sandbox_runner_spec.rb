@@ -48,37 +48,55 @@ RSpec.describe SandboxRunner do
       it "systemコールをブロックすること" do
         result = described_class.execute('system("echo hacked")')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
 
       it "backtick実行をブロックすること" do
         result = described_class.execute('`whoami`')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
 
       it "requireをブロックすること" do
         result = described_class.execute('require "net/http"')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
 
       it "File.readをブロックすること" do
         result = described_class.execute('File.read("/etc/passwd")')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
 
       it "execをブロックすること" do
         result = described_class.execute('exec("ls")')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
 
       it "loadをブロックすること" do
         result = described_class.execute('load "/etc/passwd"')
 
-        expect(result.error).to be_present
+        expect(result.error).to match(/Blocked.*SecurityError/)
+      end
+
+      it "ENV参照をブロックすること" do
+        result = described_class.execute('ENV["HOME"]')
+
+        expect(result.error).to match(/Blocked.*SecurityError/)
+      end
+
+      it "ObjectSpaceをブロックすること" do
+        result = described_class.execute('ObjectSpace.each_object(String).first')
+
+        expect(result.error).to match(/Blocked.*SecurityError/)
+      end
+
+      it "IO.popenをブロックすること" do
+        result = described_class.execute('IO.popen("ls").read')
+
+        expect(result.error).to match(/Blocked.*SecurityError/)
       end
     end
 

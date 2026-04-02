@@ -24,7 +24,7 @@
               data-action="change->chain#onReceiverChange"
               class="w-full border border-gray-300 rounded px-3 py-2 text-sm bg-white">
         <option value="">選択してください</option>
-        <% @receiver_cards.each do |card| %>
+        <% CardData::ReceiverCard.all.each do |card| %>
           <option value="<%= card.id %>" data-label="<%= card.label %>"><%= card.label %> (<%= card.type_name %>)</option>
         <% end %>
       </select>
@@ -43,7 +43,7 @@
     <div>
       <label class="block text-xs font-medium text-gray-500 mb-1">メソッドカード</label>
       <% { "A" => "主力", "B" => "ユーティリティ", "C" => "ジェネレーター", "D" => "切り札" }.each do |cat, label| %>
-        <% cards = @method_cards_by_category[cat] || [] %>
+        <% cards = CardData::MethodCard.by_category(cat) %>
         <% next if cards.empty? %>
         <details class="mb-2" <%= "open" if cat == "A" %>>
           <summary class="text-xs font-medium text-gray-600 cursor-pointer py-1"><%= cat %>. <%= label %></summary>
@@ -90,7 +90,7 @@
       <div class="mb-2">
         <p class="text-xs text-gray-500 mb-1">Proc引数と組み合わせる (&amp;:method)</p>
         <div class="flex flex-wrap gap-1">
-          <% @proc_compatible_cards.each do |card| %>
+          <% CardData::MethodCard.proc_compatible_cards.each do |card| %>
             <button type="button"
                     data-action="click->chain#wildWithProc"
                     data-proc-id="<%= card.id %>"
@@ -111,7 +111,7 @@
   <%# メタデータ %>
   <template data-chain-target="meta"
             data-game-id="<%= @game.id %>"
-            data-execute-url="<%= execute_game_path(@game) %>"
+            data-execute-url="<%= game_chain_path(@game) %>"
             data-csrf="<%= form_authenticity_token %>">
   </template>
 </div>

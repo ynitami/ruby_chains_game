@@ -1,5 +1,6 @@
-# サンドボックス内でRubyコードを実行する。
-# 別プロセスで実行し、タイムアウトと出力制限を適用する。
+require "open3"
+require "timeout"
+
 class SandboxRunner
   TIMEOUT_SECONDS = 3
   MAX_OUTPUT_LENGTH = 10_000
@@ -39,6 +40,17 @@ class SandboxRunner
       def require_relative(*); raise SecurityError, "Blocked: require_relative"; end
       def load(*); raise SecurityError, "Blocked: load"; end
 
+      # ENV/ObjectSpace/Signal/Processを無効化
+      [:[], :fetch, :keys, :values, :to_h].each do |m|
+        ENV.define_singleton_method(m) { |*| raise SecurityError, "Blocked: ENV" }
+      end
+      ObjectSpace.define_singleton_method(:each_object) { |*| raise SecurityError, "Blocked: ObjectSpace" }
+      Signal.define_singleton_method(:trap) { |*| raise SecurityError, "Blocked: Signal" }
+      [:spawn, :exec, :fork].each do |m|
+        Process.define_singleton_method(m) { |*| raise SecurityError, "Blocked: Process" }
+      end
+      IO.define_singleton_method(:popen) { |*| raise SecurityError, "Blocked: IO.popen" }
+
       # File/IO/Dir等のクラスメソッドを無効化
       [File, IO, Dir].each do |klass|
         klass.define_singleton_method(:new) { |*| raise SecurityError, "Blocked: \#{klass}.new" }
@@ -56,7 +68,7 @@ class SandboxRunner
         puts "OK"
         puts result.class.name
         puts value_str
-      rescue => e
+      rescue StandardError => e
         $stderr.puts "\#{e.class}: \#{e.message}"
         exit 1
       end
@@ -64,14 +76,11 @@ class SandboxRunner
   end
 
   def run_in_subprocess(script)
-    require "open3"
-    require "timeout"
-
     Timeout.timeout(TIMEOUT_SECONDS) do
       Open3.capture3("ruby", "-e", script)
     end
   rescue Timeout::Error
-    ["", "Timeout::Error: 実行時間が#{TIMEOUT_SECONDS}秒を超えました", OpenStruct.new(success?: false)]
+    ["", "Timeout::Error: 実行時間が#{TIMEOUT_SECONDS}秒を超えました", Struct.new(:success?).new(false)]
   end
 
   def parse_success(stdout)

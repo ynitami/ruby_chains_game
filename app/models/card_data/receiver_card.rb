@@ -13,19 +13,26 @@ module CardData
 
     class << self
       def all
-        @all ||= YAML.load_file(YAML_PATH).map { |attrs| new(attrs) }
+        @all ||= YAML.safe_load_file(YAML_PATH, permitted_classes: []).map { |attrs| new(attrs) }
       end
 
       def find(id)
-        all.find { |c| c.id == id } || raise(ArgumentError, "Unknown receiver card: #{id}")
+        index[id] || raise(ArgumentError, "Unknown receiver card: #{id}")
       end
 
       def valid_id?(id)
-        all.any? { |c| c.id == id }
+        index.key?(id)
       end
 
       def reload!
         @all = nil
+        @index = nil
+      end
+
+      private
+
+      def index
+        @index ||= all.index_by(&:id)
       end
     end
   end

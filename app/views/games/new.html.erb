@@ -23,7 +23,7 @@
       <div class="mb-4" data-player-form-target="nameFields">
         <label class="block text-sm font-medium text-gray-700 mb-2">プレイヤー名（任意）</label>
         <% 4.times do |i| %>
-          <div class="mb-2 player-name-field" data-index="<%= i %>" style="<%= 'display:none' if i >= 2 %>">
+          <div class="mb-2 player-name-field <%= 'hidden' if i >= 2 %>" data-index="<%= i %>">
             <input type="text"
                    name="player_names[<%= i %>]"
                    placeholder="プレイヤー<%= i + 1 %>"

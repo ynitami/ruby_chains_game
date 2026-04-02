@@ -12,13 +12,9 @@ Rails.application.routes.draw do
   root "games#new"
 
   resources :games, only: %i[new create show] do
-    resources :players, only: [] do
-      member do
-        patch :update_counter
-      end
-    end
-    member do
-      post :execute
+    resource :chain, only: :create, module: :games
+    resources :players, only: [], module: :games do
+      resource :counter, only: :update, module: :players
     end
   end
 end
