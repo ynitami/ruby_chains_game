@@ -87,8 +87,8 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    host:     <%= ENV['DATABASE_HOST'] %>
-    database: <%= ENV['DATABASE_NAME'] %>
+    host:     <%= Rails.application.credentials.dig(:db, :host) %>
+    database: <%= Rails.application.credentials.dig(:db, :database) %>
     username: <%= Rails.application.credentials.dig(:database, :username) %>
     password: <%= Rails.application.credentials.dig(:database, :password) %>
   cache:
