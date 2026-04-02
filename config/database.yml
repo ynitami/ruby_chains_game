@@ -91,15 +91,3 @@ production:
     database: <%= Rails.application.credentials.dig(:db, :database) %>
     username: <%= Rails.application.credentials.dig(:db, :username) %>
     password: <%= Rails.application.credentials.dig(:db, :password) %>
-  cache:
-    <<: *primary_production
-    database: ruby_chains_app_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: ruby_chains_app_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: ruby_chains_app_production_cable
-    migrations_paths: db/cable_migrate
