@@ -1,0 +1,52 @@
+# レシーバーカード定義（スターターセット全10種）
+# ruby_expression はサーバー側でコード生成に使う安全なリテラル
+
+- id: r_hello_world
+  label: '" Hello World "'
+  ruby_expression: '" Hello World "'
+  type_name: String
+
+- id: r_csv_numbers
+  label: '"1,2,3,4,5"'
+  ruby_expression: '"1,2,3,4,5"'
+  type_name: String
+
+- id: r_ruby_chains
+  label: '"Ruby_Chains"'
+  ruby_expression: '"Ruby_Chains"'
+  type_name: String
+
+- id: r_no_ruby
+  label: '"no Ruby, no life"'
+  ruby_expression: '"no Ruby, no life"'
+  type_name: String
+
+- id: r_mixed_array
+  label: '[10, nil, "bug", 20]'
+  ruby_expression: '[10, nil, "bug", 20]'
+  type_name: Array
+
+- id: r_string_array
+  label: '["Method", "Class", "Object", "Method"]'
+  ruby_expression: '["Method", "Class", "Object", "Method"]'
+  type_name: Array
+
+- id: r_nested_array
+  label: "[1, [2, 3], 4]"
+  ruby_expression: "[1, [2, 3], 4]"
+  type_name: Array
+
+- id: r_date_hash
+  label: "{year: 2025, month: 12, date: 25, version: \"3.5.0\"}"
+  ruby_expression: '{year: 2025, month: 12, date: 25, version: "3.5.0"}'
+  type_name: Hash
+
+- id: r_type_hash
+  label: '{1 => "Integer", 1.0 => "Float", "key" => "String"}'
+  ruby_expression: '{1 => "Integer", 1.0 => "Float", "key" => "String"}'
+  type_name: Hash
+
+- id: r_bonus_hash
+  label: '{ false => "Game Over", :score => [10, 5, -2], 100 => :bonus }'
+  ruby_expression: '{ false => "Game Over", :score => [10, 5, -2], 100 => :bonus }'
+  type_name: Hash

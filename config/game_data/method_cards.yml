@@ -1,0 +1,265 @@
+# メソッドカード定義
+# category: A(主力), B(ユーティリティ), C(ジェネレーター), D(切り札)
+# code_fragment: サーバーがチェイン組み立て時にそのまま使うコード断片
+# proc_compatible: &:method_name として切り札のProc引数に使えるか
+# wild: 切り札（ブロック引数を取るメソッド）であるか
+
+# === A. 主力 ===
+- id: m_chars
+  name: ".chars"
+  category: A
+  code_fragment: ".chars"
+  description: "文字列を1文字ずつの配列に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_digits
+  name: ".digits"
+  category: A
+  code_fragment: ".digits"
+  description: "整数を各桁の配列に変換（下の桁から）"
+  proc_compatible: true
+  wild: false
+
+- id: m_flatten
+  name: ".flatten"
+  category: A
+  code_fragment: ".flatten"
+  description: "ネストした配列を平坦化"
+  proc_compatible: true
+  wild: false
+
+- id: m_invert
+  name: ".invert"
+  category: A
+  code_fragment: ".invert"
+  description: "Hashのキーと値を入れ替え"
+  proc_compatible: true
+  wild: false
+
+- id: m_join
+  name: ".join"
+  category: A
+  code_fragment: ".join"
+  description: "配列の要素を連結して文字列に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_keys
+  name: ".keys"
+  category: A
+  code_fragment: ".keys"
+  description: "Hashの全キーを配列で取得"
+  proc_compatible: true
+  wild: false
+
+- id: m_last
+  name: ".last"
+  category: A
+  code_fragment: ".last"
+  description: "配列の最後の要素を取得"
+  proc_compatible: true
+  wild: false
+
+- id: m_sample
+  name: ".sample"
+  category: A
+  code_fragment: ".sample"
+  description: "配列からランダムに1要素を取得"
+  proc_compatible: true
+  wild: false
+
+- id: m_split
+  name: ".split"
+  category: A
+  code_fragment: ".split"
+  description: "文字列を空白で分割して配列に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_tally
+  name: ".tally"
+  category: A
+  code_fragment: ".tally"
+  description: "配列の要素を数えてHashにする"
+  proc_compatible: true
+  wild: false
+
+- id: m_times
+  name: ".times"
+  category: A
+  code_fragment: ".times"
+  description: "0からn-1までのEnumeratorを返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_upcase
+  name: ".upcase"
+  category: A
+  code_fragment: ".upcase"
+  description: "文字列を大文字に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_values
+  name: ".values"
+  category: A
+  code_fragment: ".values"
+  description: "Hashの全値を配列で取得"
+  proc_compatible: true
+  wild: false
+
+# === B. ユーティリティ ===
+- id: m_compact
+  name: ".compact"
+  category: B
+  code_fragment: ".compact"
+  description: "nil要素を除去"
+  proc_compatible: true
+  wild: false
+
+- id: m_count
+  name: ".count"
+  category: B
+  code_fragment: ".count"
+  description: "要素数を返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_first
+  name: ".first"
+  category: B
+  code_fragment: ".first"
+  description: "最初の要素を取得"
+  proc_compatible: true
+  wild: false
+
+- id: m_inspect
+  name: ".inspect"
+  category: B
+  code_fragment: ".inspect"
+  description: "オブジェクトの文字列表現を返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_reverse
+  name: ".reverse"
+  category: B
+  code_fragment: ".reverse"
+  description: "配列や文字列を逆順にする"
+  proc_compatible: true
+  wild: false
+
+- id: m_size
+  name: ".size"
+  category: B
+  code_fragment: ".size"
+  description: "サイズ（要素数/文字数）を返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_sort
+  name: ".sort"
+  category: B
+  code_fragment: ".sort"
+  description: "要素をソートした配列を返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_sum
+  name: ".sum"
+  category: B
+  code_fragment: ".sum"
+  description: "全要素の合計を返す"
+  proc_compatible: true
+  wild: false
+
+- id: m_to_i
+  name: ".to_i"
+  category: B
+  code_fragment: ".to_i"
+  description: "整数に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_to_s
+  name: ".to_s"
+  category: B
+  code_fragment: ".to_s"
+  description: "文字列に変換"
+  proc_compatible: true
+  wild: false
+
+- id: m_uniq
+  name: ".uniq"
+  category: B
+  code_fragment: ".uniq"
+  description: "重複を除去した配列を返す"
+  proc_compatible: true
+  wild: false
+
+# === C. ジェネレーター ===
+- id: m_concat_rb
+  name: '.concat(".rb")'
+  category: C
+  code_fragment: '.concat(".rb")'
+  description: '文字列に".rb"を結合'
+  proc_compatible: false
+  wild: false
+
+- id: m_concat_array
+  name: ".concat([99, 98, 97])"
+  category: C
+  code_fragment: ".concat([99, 98, 97])"
+  description: "配列に[99, 98, 97]を結合"
+  proc_compatible: false
+  wild: false
+
+- id: m_push_array
+  name: ".push([10, 20])"
+  category: C
+  code_fragment: ".push([10, 20])"
+  description: "配列に[10, 20]を要素として追加"
+  proc_compatible: false
+  wild: false
+
+- id: m_scan
+  name: ".scan(/../)"
+  category: C
+  code_fragment: ".scan(/../)"
+  description: "2文字ずつマッチした配列を返す"
+  proc_compatible: false
+  wild: false
+
+- id: m_merge_hash
+  name: '.merge({ "sym": :val })'
+  category: C
+  code_fragment: '.merge({ "sym": :val })'
+  description: 'Hashに{ "sym": :val }をマージ'
+  proc_compatible: false
+  wild: false
+
+# === D. 切り札 ===
+- id: m_map
+  name: ".map"
+  category: D
+  code_fragment: ".map"
+  description: "各要素にブロックを適用した配列を返す"
+  proc_compatible: false
+  wild: true
+
+- id: m_group_by
+  name: ".group_by"
+  category: D
+  code_fragment: ".group_by"
+  description: "ブロックの戻り値でグループ化したHashを返す"
+  proc_compatible: false
+  wild: true
+
+- id: m_transform_values
+  name: ".transform_values"
+  category: D
+  code_fragment: ".transform_values"
+  description: "Hashの各値にブロックを適用"
+  proc_compatible: false
+  wild: true
