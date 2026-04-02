@@ -9,6 +9,16 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root "games#new"
+
+  resources :games, only: %i[new create show] do
+    resources :players, only: [] do
+      member do
+        patch :update_counter
+      end
+    end
+    member do
+      post :execute
+    end
+  end
 end
