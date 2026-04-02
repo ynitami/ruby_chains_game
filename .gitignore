@@ -26,3 +26,7 @@
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 .claude
+
+# Ignore key files for decrypting credentials and more.
+/config/credentials/*.key
+
