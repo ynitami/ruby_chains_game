@@ -1,0 +1,29 @@
+<div class="flex items-center justify-between text-xs py-1 <%= player.defeated? ? 'opacity-40' : '' %>" data-controller="counter">
+  <span class="font-medium w-20 truncate"><%= player.name %></span>
+  <div class="flex items-center gap-3">
+    <div class="flex items-center gap-1">
+      <span class="text-gray-500">LP</span>
+      <button data-action="click->counter#decrement"
+              data-url="<%= game_player_counter_path(player.game, player) %>"
+              data-field="lp"
+              class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-center leading-6 font-mono">-</button>
+      <span class="w-6 text-center font-mono font-bold <%= player.lp <= 0 ? 'text-red-600' : '' %>"><%= player.lp %></span>
+      <button data-action="click->counter#increment"
+              data-url="<%= game_player_counter_path(player.game, player) %>"
+              data-field="lp"
+              class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-center leading-6 font-mono">+</button>
+    </div>
+    <div class="flex items-center gap-1">
+      <span class="text-gray-500">KP</span>
+      <button data-action="click->counter#decrement"
+              data-url="<%= game_player_counter_path(player.game, player) %>"
+              data-field="kp"
+              class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-center leading-6 font-mono">-</button>
+      <span class="w-6 text-center font-mono font-bold"><%= player.kp %></span>
+      <button data-action="click->counter#increment"
+              data-url="<%= game_player_counter_path(player.game, player) %>"
+              data-field="kp"
+              class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-center leading-6 font-mono">+</button>
+    </div>
+  </div>
+</div>
