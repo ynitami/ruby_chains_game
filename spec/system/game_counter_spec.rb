@@ -40,10 +40,18 @@ RSpec.describe "LP/KPカウンター", type: :system do
 
     it "上限5を超えないこと" do
       container = find("#player_counter_#{player.id}")
-      container.find("[data-field='kp'][data-action*='increment']").click
 
-      # KP初期値5、上限5なのでバリデーションエラーで値は変わらない
+      # まず1減らして4にする
+      container.find("[data-field='kp'][data-action*='decrement']").click
+      expect(container).to have_text("4")
+
+      # 1増やして5に戻す
+      container.find("[data-field='kp'][data-action*='increment']").click
       expect(container).to have_text("5")
+
+      # さらに増やしても5のまま（6にならない）
+      container.find("[data-field='kp'][data-action*='increment']").click
+      expect(container).not_to have_text("6")
     end
   end
 end

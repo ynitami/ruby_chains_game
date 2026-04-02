@@ -1,4 +1,3 @@
-
 class Games::Players::CountersController < ApplicationController
   before_action :set_player
 

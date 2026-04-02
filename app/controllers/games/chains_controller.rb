@@ -1,7 +1,7 @@
 class Games::ChainsController < ApplicationController
-  before_action :set_game
-
   def create
+    Game.find(params[:game_id]) # ゲーム存在確認（404用）
+
     method_entries = ChainExecutor.parse_params(params[:method_entries])
 
     if (error = ChainExecutor.validate(receiver_id: params[:receiver_id], method_entries: method_entries))
@@ -10,11 +10,5 @@ class Games::ChainsController < ApplicationController
 
     result = ChainExecutor.call(receiver_id: params[:receiver_id], method_entries: method_entries)
     render json: result
-  end
-
-  private
-
-  def set_game
-    @game = Game.find(params[:game_id])
   end
 end
