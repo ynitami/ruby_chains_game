@@ -85,7 +85,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
+  primary:
     <<: *default
     host:     <%= Rails.application.credentials.dig(:db, :host) %>
     database: <%= Rails.application.credentials.dig(:db, :database) %>
