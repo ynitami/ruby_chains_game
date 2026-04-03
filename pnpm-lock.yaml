@@ -7,7 +7,7 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19

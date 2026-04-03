@@ -24,12 +24,10 @@
     </div>
 
     <%# Turbo Frame でルールコンテンツを遅延読み込み %>
-    <div class="overflow-y-auto flex-1">
-      <turbo-frame id="rules_content" src="<%= rules_path %>" loading="lazy">
-        <div class="flex items-center justify-center py-12">
-          <span class="text-sm text-gray-400">読み込み中...</span>
-        </div>
-      </turbo-frame>
-    </div>
+    <turbo-frame id="rules_content" src="<%= rules_path %>" loading="lazy" class="flex flex-col overflow-hidden flex-1">
+      <div class="flex items-center justify-center py-12">
+        <span class="text-sm text-gray-400">読み込み中...</span>
+      </div>
+    </turbo-frame>
   </div>
 </dialog>
