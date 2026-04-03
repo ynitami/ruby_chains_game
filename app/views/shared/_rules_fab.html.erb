@@ -10,7 +10,7 @@
 <%# ルールダイアログ %>
 <dialog id="rules-dialog"
         class="p-0 w-full max-w-md rounded-t-xl shadow-xl max-h-[90vh]"
-        onclick="if(event.target===this)this.close()">
+        onclick="var r=this.querySelector('div').getBoundingClientRect();if(event.clientY<r.top||event.clientY>r.bottom||event.clientX<r.left||event.clientX>r.right)this.close()">
   <div class="flex flex-col max-h-[90vh]">
     <%# ヘッダー %>
     <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 shrink-0">

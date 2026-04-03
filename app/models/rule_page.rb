@@ -18,15 +18,26 @@ class RulePage
 
   class << self
     def all
-      @all ||= PAGES.map do |page|
-        markdown = RULES_DIR.join(page[:file]).read
-        html = Commonmarker.to_html(markdown, options: { extension: { table: true, strikethrough: true } })
-        new(key: page[:key], title: page[:title], html: html)
-      end
+      return load_pages unless Rails.env.production?
+
+      @all ||= load_pages
     end
 
     def reload!
       @all = nil
+    end
+
+    private
+
+    def load_pages
+      PAGES.map do |page|
+        markdown = RULES_DIR.join(page[:file]).read
+        html = Commonmarker.to_html(markdown, options: {
+          extension: { table: true, strikethrough: true },
+          render: { unsafe: false }
+        })
+        new(key: page[:key], title: page[:title], html: html)
+      end
     end
   end
 end

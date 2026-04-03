@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ルールダイアログ: ボトムシート風に下寄せ */
 #rules-dialog {
   position: fixed;
+  inset: unset;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);

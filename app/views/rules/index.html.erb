@@ -29,7 +29,7 @@
                   prose-th:bg-gray-50 prose-th:px-2 prose-th:py-1 prose-th:text-left prose-th:font-medium
                   prose-td:px-2 prose-td:py-1 prose-td:border-t prose-td:border-gray-200
                   prose-hr:my-4">
-        <%= page.html.html_safe %>
+        <%= sanitize(page.html, tags: %w[h1 h2 h3 h4 h5 h6 p ul ol li a strong em code pre br hr table thead tbody tr th td blockquote del], attributes: %w[href class]) %>
       </div>
     </div>
   <% end %>
