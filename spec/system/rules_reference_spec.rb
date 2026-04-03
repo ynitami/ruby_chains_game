@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "ルール参照", type: :system do
   def open_rules_dialog
-    page.execute_script("document.getElementById('rules-dialog').showModal()")
+    find("button[aria-label='ルールを表示']").click
     expect(page).to have_css("dialog#rules-dialog[open]")
   end
 
@@ -46,11 +46,7 @@ RSpec.describe "ルール参照", type: :system do
     open_rules_dialog
 
     within "dialog#rules-dialog" do
-      # Turbo Frameの読み込み完了を待つ
-      expect(page).to have_button("カードリスト")
-
-      # Stimulus接続後にタブをクリック
-      page.execute_script("document.querySelector('[data-rules-tab-target=\"tab\"][data-index=\"2\"]').click()")
+      click_button "カードリスト"
 
       expect(page).to have_content("メソッドカード")
     end
@@ -59,7 +55,9 @@ RSpec.describe "ルール参照", type: :system do
   it "閉じるボタンでダイアログが閉じること" do
     open_rules_dialog
 
-    page.execute_script("document.getElementById('rules-dialog').close()")
+    within "dialog#rules-dialog" do
+      find("button[aria-label='閉じる']").click
+    end
 
     expect(page).to have_no_css("dialog#rules-dialog[open]")
   end
