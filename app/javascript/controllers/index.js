@@ -8,3 +8,6 @@ application.register("counter", CounterController)
 
 import PlayerFormController from "controllers/player_form_controller"
 application.register("player-form", PlayerFormController)
+
+import RulesTabController from "controllers/rules_tab_controller"
+application.register("rules-tab", RulesTabController)

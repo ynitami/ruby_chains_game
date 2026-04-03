@@ -1,0 +1,33 @@
+<%# FAB ボタン %>
+<button type="button"
+        onclick="document.getElementById('rules-dialog').showModal()"
+        class="fixed bottom-4 right-4 z-20 w-12 h-12 bg-red-700 text-white rounded-full shadow-lg
+               hover:bg-red-800 transition-colors flex items-center justify-center text-lg"
+        aria-label="ルールを表示">
+  📖
+</button>
+
+<%# ルールダイアログ %>
+<dialog id="rules-dialog"
+        class="p-0 w-full max-w-md rounded-t-xl shadow-xl max-h-[90vh]"
+        onclick="if(event.target===this)this.close()">
+  <div class="flex flex-col max-h-[90vh]">
+    <%# ヘッダー %>
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 shrink-0">
+      <h2 class="text-sm font-bold text-gray-800">ゲームルール</h2>
+      <button type="button"
+              onclick="document.getElementById('rules-dialog').close()"
+              class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100"
+              aria-label="閉じる">
+        ✕
+      </button>
+    </div>
+
+    <%# Turbo Frame でルールコンテンツを遅延読み込み %>
+    <turbo-frame id="rules_content" src="<%= rules_path %>" loading="lazy" class="flex flex-col overflow-hidden flex-1">
+      <div class="flex items-center justify-center py-12">
+        <span class="text-sm text-gray-400">読み込み中...</span>
+      </div>
+    </turbo-frame>
+  </div>
+</dialog>
