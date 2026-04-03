@@ -23,7 +23,7 @@ RSpec.describe SandboxRunner do
         result = described_class.execute('["a","b","a"].tally')
 
         expect(result.error).to be_nil
-        expect(result.value).to eq '{"a"=>2, "b"=>1}'
+        expect(result.value).to eq '{"a" => 2, "b" => 1}'
         expect(result.class_name).to eq "Hash"
       end
 
