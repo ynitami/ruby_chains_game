@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@fortawesome/fontawesome-free/css/all.css";
 @plugin "@tailwindcss/typography";
 
 /* ルールダイアログ: ボトムシート風に下寄せ */

@@ -13,9 +13,9 @@ RSpec.describe "ゲーム作成", type: :system do
   it "デフォルト設定でゲームを開始できること" do
     click_button "ゲーム開始"
 
-    expect(page).to have_current_path(game_path(Game.last))
     expect(page).to have_content("プレイヤー1")
     expect(page).to have_content("プレイヤー2")
+    expect(page).to have_current_path(game_path(Game.last))
   end
 
   it "プレイヤー名を指定してゲームを開始できること" do
