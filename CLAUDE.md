@@ -7,7 +7,7 @@
 
 ## 技術スタック
 
-- Rails 8.1.3 / Ruby 3.3.6 / PostgreSQL
+- Rails 8.1.3 / Ruby 4.0.2 / PostgreSQL
 - Tailwind CSS v4 / Hotwire (Turbo + Stimulus) / importmap
 - RSpec + FactoryBot（テスト）
 - サンドボックスで実際にRubyコードを実行（セキュリティ対策済み）
