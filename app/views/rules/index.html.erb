@@ -1,0 +1,36 @@
+<turbo-frame id="rules_content" data-controller="rules-tab">
+  <%# タブバー %>
+  <div class="flex border-b border-gray-200 sticky top-0 bg-white z-10">
+    <% @rule_pages.each_with_index do |page, i| %>
+      <button type="button"
+              class="flex-1 py-2 text-xs font-medium text-center transition-colors
+                     <%= i == 0 ? 'text-red-700 border-b-2 border-red-700' : 'text-gray-500 hover:text-gray-700' %>"
+              data-rules-tab-target="tab"
+              data-action="click->rules-tab#switchTab"
+              data-index="<%= i %>">
+        <%= page.title %>
+      </button>
+    <% end %>
+  </div>
+
+  <%# コンテンツパネル %>
+  <% @rule_pages.each_with_index do |page, i| %>
+    <div class="p-4 <%= i == 0 ? '' : 'hidden' %>"
+         data-rules-tab-target="panel">
+      <div class="prose prose-sm max-w-none
+                  prose-headings:text-gray-800 prose-headings:font-bold
+                  prose-h2:text-base prose-h2:mt-6 prose-h2:mb-2 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-1
+                  prose-h3:text-sm prose-h3:mt-4 prose-h3:mb-1
+                  prose-p:text-xs prose-p:text-gray-700 prose-p:leading-relaxed
+                  prose-li:text-xs prose-li:text-gray-700
+                  prose-strong:text-gray-900
+                  prose-code:text-red-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded prose-code:text-xs
+                  prose-table:text-xs
+                  prose-th:bg-gray-50 prose-th:px-2 prose-th:py-1 prose-th:text-left prose-th:font-medium
+                  prose-td:px-2 prose-td:py-1 prose-td:border-t prose-td:border-gray-200
+                  prose-hr:my-4">
+        <%= page.html.html_safe %>
+      </div>
+    </div>
+  <% end %>
+</turbo-frame>
