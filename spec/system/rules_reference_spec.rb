@@ -46,11 +46,7 @@ RSpec.describe "ルール参照", type: :system do
     open_rules_dialog
 
     within "dialog#rules-dialog" do
-      # Turbo Frameの読み込み完了を待つ
-      expect(page).to have_button("カードリスト")
-
-      # Stimulus接続後にタブをクリック
-      page.execute_script("document.querySelector('[data-rules-tab-target=\"tab\"][data-index=\"2\"]').click()")
+      click_button "カードリスト"
 
       expect(page).to have_content("メソッドカード")
     end

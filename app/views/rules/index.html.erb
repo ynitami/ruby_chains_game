@@ -1,4 +1,5 @@
-<turbo-frame id="rules_content" class="flex flex-col overflow-hidden flex-1" data-controller="rules-tab">
+<turbo-frame id="rules_content" class="flex flex-col overflow-hidden flex-1">
+  <div data-controller="rules-tab" class="flex flex-col overflow-hidden flex-1">
   <%# タブバー（スクロール外に固定） %>
   <div class="flex border-b border-gray-200 bg-white shrink-0">
     <% @rule_pages.each_with_index do |page, i| %>
@@ -34,5 +35,6 @@
         </div>
       </div>
     <% end %>
+  </div>
   </div>
 </turbo-frame>
