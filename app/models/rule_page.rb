@@ -18,9 +18,11 @@ class RulePage
 
   class << self
     def all
-      return load_pages unless Rails.env.production?
-
-      @all ||= load_pages
+      if Rails.env.production?
+        @all ||= load_pages
+      else
+        load_pages
+      end
     end
 
     def reload!
